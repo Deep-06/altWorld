@@ -32,15 +32,15 @@ export const Assignment = () => {
   };
   return (
     <DIV >
-      <ASSIGNMENTDIV style={{width:'30%'}}>
+      <ASSIGNMENTDIV >
         <Text fontSize='md' textAlign={'left'} >Pages / Assignment</Text>
         <Text fontSize='md' fontWeight={'bold'} textAlign={'left'}>{AssignmentDetails.name}</Text>
-        <div style={{boxShadow:'1px 4px 6px whitesmoke'}}>
+        <div style={{boxShadow:'1px 4px 6px lightgrey',padding:'10px'}}>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <Text fontSize='xl' fontWeight='bold'>{AssignmentDetails.name}</Text>
             <HStack>
               <Text fontWeight='bold' color='green'>{AssignmentDetails.status}</Text>
-              <FaPen />
+              <FaPen style={{ padding: '10px', borderRadius: '10px' ,boxShadow:'1px 4px 6px lightgrey'}}/>
             </HStack>
           </div>
 
@@ -80,7 +80,7 @@ export const Assignment = () => {
                       <Text textAlign={'left'} margin={'0px'}>{el.email}</Text>
                     </div>
                   </HStack>
-                  <Text fontWeight={'bold'} color={el.score > 50 ? "green" : "orange"}>{el.score}%</Text>
+                  <Text fontSize={'large'} fontWeight={'bold'} color={el.score > 50 ? "green" : "orange"}>{el.score}%</Text>
                 </div>
               })}
             </div>
@@ -116,25 +116,29 @@ export const Assignment = () => {
 
 const DIV = styled.div`
 display:flex;
-padding:'20px';
-margin:'10px';
+justify-content:center;
+flex-direction:row;
+margin:10px;
+margin-top:2px;
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 950px) {
     flex-direction: column;
-    padding:'20px';
+    padding:10px;
 }
 
 `;
 
 const ASSIGNMENTDIV = styled.div`
-margin:'10px';
-padding: '20px'; 
-width: '30%' ;
+width:35%;
+padding:10px;
 
-
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 950px) {
+  width:70%;
+  padding:10px;
+};
+@media screen and (min-width: 951px) and (max-width: 1050px) {
   width:50%;
-  padding:'40px';
+  padding:10px;
 }
 
 `;

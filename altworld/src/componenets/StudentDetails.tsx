@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, HStack, Text } from '@chakra-ui/react'
+import { Box, Button, HStack, Text } from '@chakra-ui/react'
 import { FaBackward, FaForward } from 'react-icons/fa6';
 import { styled } from 'styled-components'
 
@@ -21,12 +21,12 @@ interface VideoPlayerProps {
 }
 const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoLink }) => {
   return (
-    <div style={{ height: '500px' }}>
-      <video controls>
+    <div style={{ height: '500px' ,width:'100%',borderRadius:'10px'}}>
+      <video controls style={{width:'100%',margin:'0px'}}>
         <source src={videoLink} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <div style={{ padding: '5px', display: 'flex', flexDirection: 'row-reverse', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div style={{backgroundColor:'black', padding: '5px', margin:'0px', display: 'flex', flexDirection: 'row-reverse', justifyContent: 'space-between', alignItems: 'center' }}>
         <FaForward style={{ backgroundColor: 'grey', padding: '10px', borderRadius: '10px' }} />
         <div>
           <Text color={'white'}>Tell me about yourself</Text>
@@ -42,9 +42,9 @@ export const StudentDetails: React.FC<StudentDetailsProps> = ({ image, name, ema
   situation_handling, about, experience, hobbies, intro }) => {
 
   return (
-    <DIV style={{display:'flex'}}>
-      <div style={{ width: '70%', padding: '10px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+    <DIV >
+      <Box padding={'10px'} >
+        <div style={{ display: 'flex', justifyContent: 'space-around',padding: '10px' }}>
           <HStack>
             <img src={image} alt='pic' width={'10%'} style={{ borderRadius: '10px' }} />
             <div>
@@ -52,7 +52,7 @@ export const StudentDetails: React.FC<StudentDetailsProps> = ({ image, name, ema
               <Text textAlign={'left'} margin={'0px'}>{email}</Text>
             </div>
           </HStack>
-          <Text fontSize='x-large' fontWeight={'bold'} color={score > 50 ? "green" : "orange"}>{score}%</Text>
+          <Text fontSize={'xx-large'} fontWeight={'bold'} color={score > 50 ? "green" : "orange"}>{score}%</Text>
         </div>
 
 
@@ -113,31 +113,31 @@ export const StudentDetails: React.FC<StudentDetailsProps> = ({ image, name, ema
           <Text width={'15%'} fontWeight={'bold'} color={situation_handling >= 7 ? "green" : "orange"}>{situation_handling}/10</Text>
         </div>
 
-        <div style={{ padding: '10px' }}>
-          <Text fontSize={'lg'} textAlign={'left'} margin={'0px'} fontWeight={'bold'}>About</Text>
+        <div style={{ padding: '20px' }}>
+          <Text fontSize={'larger'} textAlign={'left'} margin={'0px'} fontWeight={'bold'}>About</Text>
           <Text textAlign={'left'} margin={'0px'}>{about}</Text>
         </div>
 
-        <div style={{ padding: '10px' }}>
-          <Text fontSize={'lg'} textAlign={'left'} margin={'0px'} fontWeight={'bold'}>Experience</Text>
+        <div style={{ padding: '20px' }}>
+          <Text fontSize={'larger'} textAlign={'left'} margin={'0px'} fontWeight={'bold'}>Experience</Text>
           <Text textAlign={'left'} margin={'0px'}>{experience}</Text>
         </div>
 
-        <div style={{ padding: '10px' }}>
-          <Text fontSize={'lg'} textAlign={'left'} margin={'0px'} fontWeight={'bold'}>Hobbies</Text>
+        <div style={{ padding: '20px' }}>
+          <Text fontSize={'larger'} textAlign={'left'} margin={'0px'} fontWeight={'bold'}>Hobbies</Text>
           <Text textAlign={'left'} margin={'0px'}>{hobbies}</Text>
         </div>
 
-        <div style={{ padding: '10px' }}>
-          <Text fontSize={'lg'} margin={'0px'} textAlign={'left'} fontWeight={'bold'}>Introduction</Text>
+        <div style={{ padding: '20px' }}>
+          <Text fontSize={'larger'} margin={'0px'} textAlign={'left'} fontWeight={'bold'}>Introduction</Text>
           <Text margin={'0px'} textAlign={'left'}>{intro}</Text>
         </div>
 
         <Button margin={'10px'} width={'70%'} border='1px solid #67D7CD' padding={'10px'} bgColor={"#67D7CD"} color={'white'} fontSize={'medium'} borderRadius={'10px'}>SHORTLIST</Button>
-      </div>
+      </Box>
 
       {/* images */}
-      <div style={{ backgroundColor: 'black', height: '630px', }}>
+      <div style={{ backgroundColor: 'black', height: '50%',width:'50%',marginTop:'70px',borderRadius:'10px'}}>
         <VideoPlayer videoLink={image} />
         {/* <img src={image} alt='pic'/> */}
       </div>
@@ -146,10 +146,16 @@ export const StudentDetails: React.FC<StudentDetailsProps> = ({ image, name, ema
 }
 
 const DIV = styled.div`
-display:'flex';
+display:flex;
+flex-direction: row;
+box-Shadow:1px 4px 6px lightgrey;
+padding:10px;
+border-Radius:10px;
+/* width:50%; */
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1050px) {
     flex-direction: column;
+    /* width:100%; */
 }
 
 `;
